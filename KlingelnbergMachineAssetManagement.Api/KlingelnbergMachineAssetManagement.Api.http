@@ -1,0 +1,6 @@
+@KlingelnbergMachineAssetManagement.Api_HostAddress = http://localhost:5125
+
+GET {{KlingelnbergMachineAssetManagement.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

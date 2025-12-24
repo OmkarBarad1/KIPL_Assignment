@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../KlingelnbergMachineAssetManagement.Api/KlingelnbergMachineAssetManagement.Api.csproj" Id="d0d004c8-5e02-4897-b3cb-cf607edcfdc9" />
+  <Project Path="KlingelnbergMachineAssetManagement.csproj" />
+</Solution>

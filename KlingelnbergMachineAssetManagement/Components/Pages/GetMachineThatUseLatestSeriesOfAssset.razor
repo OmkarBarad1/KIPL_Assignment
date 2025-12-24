@@ -1,0 +1,68 @@
+﻿@page "/latest-machines"
+@rendermode InteractiveServer
+@inject KlingelnbergMachineAssetManagement.Services.ApiService ApiService
+
+<div class="container mt-5">
+
+    <div class="card shadow-sm p-4">
+        <h3 class="text-center mb-4">
+            Machines Using Latest Series of All Assets
+        </h3>
+
+        <!-- Button Section -->
+        <div class="text-center mb-4">
+            <button class="btn btn-warning px-4"
+                    @onclick="Load">
+                Get Machines
+            </button>
+        </div>
+
+        <!-- Initial State -->
+        @if(!isClicked)
+        {
+            <p class="text-center text-danger">
+                Please Click the Button To Get Machines That Are Use Latest Series Of Asset
+            </p>
+        }
+        else if (!machines.Any())
+        {
+        <p class="text-center text-danger">
+            No machine is using the latest series of all assets.
+        </p>
+        }
+        else
+        {
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Machine Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < machines.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@machines[i]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
+    </div>
+
+</div>
+
+@code {
+    private List<string>? machines = new();
+    private bool isClicked = false;
+
+    private async Task Load()
+    {
+        isClicked = true;
+        machines = await ApiService.GetMachineThatUseLatestSeriesOfAsset() ?? new List<string>();
+    }
+}

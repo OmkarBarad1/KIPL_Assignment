@@ -1,0 +1,121 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "KlingelnbergMachineAssetManagement.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/machines/{machineName}/assets": {
+      "get": {
+        "tags": [
+          "GetAsset"
+        ],
+        "parameters": [
+          {
+            "name": "machineName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/machines/latest": {
+      "get": {
+        "tags": [
+          "GetLatestSeriesMachine"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/assets/{assetName}/machines": {
+      "get": {
+        "tags": [
+          "GetMachine"
+        ],
+        "parameters": [
+          {
+            "name": "assetName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/matrix/upload": {
+      "post": {
+        "tags": [
+          "MatrixUpload"
+        ],
+        "parameters": [
+          {
+            "name": "replace",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { },
+  "tags": [
+    {
+      "name": "GetAsset"
+    },
+    {
+      "name": "GetLatestSeriesMachine"
+    },
+    {
+      "name": "GetMachine"
+    },
+    {
+      "name": "MatrixUpload"
+    }
+  ]
+}

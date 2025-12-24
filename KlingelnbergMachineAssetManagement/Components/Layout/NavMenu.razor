@@ -1,0 +1,42 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">KlingelnbergMachineAssetManagement</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="data-upload">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Upload File
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="get-asset">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Get Assets
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="get-machine">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Get Machine
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="latest-machines">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Get Machine with LS
+            </NavLink>
+        </div>
+    </nav>
+</div>
+

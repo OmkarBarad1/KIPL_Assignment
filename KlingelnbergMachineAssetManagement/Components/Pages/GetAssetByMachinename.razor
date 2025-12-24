@@ -1,0 +1,95 @@
+﻿@page "/get-asset"
+@rendermode InteractiveServer
+@inject KlingelnbergMachineAssetManagement.Services.ApiService ApiService
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+
+        <h3 class="text-center mb-4">Get Assets by Machine Name</h3>
+
+        <!-- Input Section -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control"
+                           placeholder="Enter machine name"
+                           @bind="machineName" />
+
+                    <button class="btn btn-primary"
+                            @onclick="Search">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message -->
+        @if (!string.IsNullOrEmpty(message))
+        {
+            <p class="text-center text-muted mt-3">
+                @message
+            </p>
+        }
+
+        <!-- Result Table -->
+        @if (isSearched && assets.Any())
+        {
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Asset Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < assets.Count; i++)
+                        {
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td>@assets[i]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+    </div>
+</div>
+
+@code {
+
+    private string machineName = "";
+    private List<string> assets = new();
+
+    private bool isSearched = false;
+    private string message = "";
+
+    private async Task Search()
+    {
+        isSearched = true;
+        message = "";
+        assets.Clear();
+
+        if (string.IsNullOrWhiteSpace(machineName))
+        {
+            message = "Please enter a machine name.";
+            return;
+        }
+
+        var result = await ApiService.GetAssetByMachineName(machineName);
+
+        if (result == null || result.Count == 0)
+        {
+            message = "No assets found for this machine.";
+        }
+        else
+        {
+            assets = result;
+        }
+
+        // Optional: clear input after search
+        machineName = "";
+    }
+}

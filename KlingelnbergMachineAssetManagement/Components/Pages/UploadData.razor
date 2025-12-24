@@ -1,0 +1,77 @@
+﻿@page "/data-upload"
+@using Microsoft.AspNetCore.Components.Forms
+@rendermode InteractiveServer
+@inject IWebHostEnvironment env
+@inject KlingelnbergMachineAssetManagement.Services.ApiPostService UploadService
+
+<div class="container mt-5">
+
+    <div class="card shadow-sm p-4">
+        <h3 class="text-center mb-4">Upload Matrix File</h3>
+
+        <!-- File Picker -->
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6">
+                <InputFile class="form-control"
+                           OnChange="OnFileSelected" />
+            </div>
+        </div>
+        
+        <label>
+            <input type="checkbox" @bind = "isChecked"/>Replace the Existing file
+        </label>
+        <!-- Upload Button -->
+        <div class="text-center mb-3">
+            <button class="btn btn-primary px-4"
+                    @onclick="UploadFile"
+                    disabled="@(!isFileSelected)">
+                Upload
+            </button>
+        </div>
+
+        <!-- Status Message -->
+        @if (!string.IsNullOrWhiteSpace(statusMessage))
+        {
+            <p class="text-center fw-bold @statusClass">
+                @statusMessage
+            </p>
+        }
+    </div>
+
+</div>
+
+@code {
+
+    private string statusMessage = string.Empty;
+    private string statusClass = "text-success";
+    private bool isChecked = false;
+
+    private IBrowserFile? selectedFile;
+    private bool isFileSelected => selectedFile != null;
+
+    private void OnFileSelected(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+        statusMessage = $"Selected file: {selectedFile.Name}";
+        statusClass = "text-primary";
+    }
+
+    private async Task UploadFile()
+    {
+        if (selectedFile == null)
+            return;
+
+        try
+        {
+            await UploadService.UploadAsync(selectedFile, !isChecked);
+
+            statusMessage = $"File uploaded successfully as matrix";
+            statusClass = "text-success";
+        }
+        catch (Exception ex)
+        {
+            statusMessage = $"Upload failed: {ex.Message}";
+            statusClass = "text-danger";
+        }
+    }
+}
