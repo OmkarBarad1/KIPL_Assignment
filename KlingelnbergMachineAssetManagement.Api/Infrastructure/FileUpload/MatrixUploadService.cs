@@ -1,29 +1,28 @@
-﻿using KlingelnbergMachineAssetManagement.Api.Infrastructure.FileWriter;
-using KlingelnbergMachineAssetManagement.Api.Infrastructure.ParserResolver;
-using Microsoft.AspNetCore.Http;
+﻿using KlingelnbergMachineAssetManagement.Api.Application.Interfaces;
+using KlingelnbergMachineAssetManagement.Api.Infrastructure.Fileupload;
 
 
 namespace KlingelnbergMachineAssetManagement.Api.Infrastructure.FileUpload
 {
     public class MatrixUploadService
     {
-        private readonly MatrixParserResolver _Resolver;
+        //private readonly MatrixParserResolver _Resolver;
         private readonly MatrixWriter _writer;
-
-        public MatrixUploadService(MatrixParserResolver Resolver, MatrixWriter writer)
+        private readonly IEnumerable<IUploadedMatrixParser> _parser;
+        public MatrixUploadService(IEnumerable<IUploadedMatrixParser> parser, MatrixWriter writer)
         {
-            _Resolver = Resolver;
+            _parser = parser;  
             _writer = writer;
         }
 
-        public async Task UploadAsync(IFormFile file, bool append)
+        public async Task UploadAsync(IFormFile file)
         {
             var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
 
-            var parser = _Resolver.Get(ext);
+            var parser = _parser.FirstOrDefault(p => p.CanHandle(ext)) ?? throw new NotSupportedException($"No parser registered"); ;
 
             var records = await parser.ParseAsync(file);
-            _writer.Save(records, append);
+            _writer.Save(records);
         }
     }
 }

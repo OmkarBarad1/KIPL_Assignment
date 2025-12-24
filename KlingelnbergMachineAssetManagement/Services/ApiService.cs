@@ -19,7 +19,7 @@
 
         public async Task<List<string>> GetMachineByAssetName(string assetName)
         {
-            return await _http.GetFromJsonAsync<List<string>>($"/api/assets/{assetName}/machines") ?? new List<string>();
+            return await _http.GetFromJsonAsync<List<string>>($"/api/machines/{assetName}/machines") ?? new List<string>();
         }
 
         public async Task<List<string>> GetMachineThatUseLatestSeriesOfAsset()

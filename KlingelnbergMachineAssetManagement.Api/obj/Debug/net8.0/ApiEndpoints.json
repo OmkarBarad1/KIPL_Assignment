@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetMachineController",
+    "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAllServicesController",
     "Method": "GetMachinesByAsset",
-    "RelativePath": "api/assets/{assetName}/machines",
+    "RelativePath": "api/machines/{assetName}/machines",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -16,7 +16,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAssetController",
+    "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAllServicesController",
     "Method": "GetAssetsByMachine",
     "RelativePath": "api/machines/{machineName}/assets",
     "HttpMethod": "GET",
@@ -32,7 +32,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetLatestSeriesMachineController",
+    "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAllServicesController",
     "Method": "GetMachinesUsingLatestAssetSeries",
     "RelativePath": "api/machines/latest",
     "HttpMethod": "GET",
@@ -52,11 +52,6 @@
       {
         "Name": "file",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      },
-      {
-        "Name": "replace",
-        "Type": "System.Boolean",
         "IsRequired": false
       }
     ],

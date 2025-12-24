@@ -15,20 +15,18 @@ namespace KlingelnbergMachineAssetManagement.Api.Controllers
         }
 
         [HttpPost("upload")]
-        public async Task<IActionResult> Upload(IFormFile file, bool replace)
+        public async Task<IActionResult> Upload(IFormFile file)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("No file uploaded.");
 
             try
             {
-                await _service.UploadAsync(file, append: !replace);
+                await _service.UploadAsync(file);
 
                 return Ok(new
                 {
-                    message = replace
-                        ? "Matrix file replaced successfully."
-                        : "Matrix file updated successfully."
+                    message = "File Uploded Succesfully"
                 });
             }
             catch (Exception ex)

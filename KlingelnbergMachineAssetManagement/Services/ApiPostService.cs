@@ -7,26 +7,23 @@ namespace KlingelnbergMachineAssetManagement.Services
     {
         private readonly HttpClient _http;
 
-        public ApiPostService(HttpClient http)
+        public ApiPostService(IHttpClientFactory factory)
         {
-            _http = http;
+            _http = factory.CreateClient("ApiClient");
         }
 
-        public async Task UploadAsync(IBrowserFile file, bool replace)
+        public async Task UploadAsync(IBrowserFile file)
         {
             using var content = new MultipartFormDataContent();
 
             var stream = file.OpenReadStream();
 
             var fileContent = new StreamContent(stream);
-            fileContent.Headers.ContentType =
-                new MediaTypeHeaderValue(file.ContentType);
+            fileContent.Headers.ContentType = new MediaTypeHeaderValue(file.ContentType);
 
             content.Add(fileContent, "file", file.Name);
 
-            content.Add(new StringContent(replace.ToString()), "replace");
-
-            var response = await _http.PostAsync("api/matrix/upload", content);
+            var response = await _http.PostAsync($"api/matrix/upload", content);
             response.EnsureSuccessStatusCode();
         }
     }

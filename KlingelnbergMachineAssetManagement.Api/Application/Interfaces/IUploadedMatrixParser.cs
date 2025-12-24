@@ -1,4 +1,4 @@
-﻿using KlingelnbergMachineAssetManagement.Api.Domain.Entities;
+﻿using KlingelnbergMachineAssetManagement.Api.Domain;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 

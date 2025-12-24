@@ -88,3 +88,4 @@ C:\Users\Bara_Omk\Desktop\KlingelnbergMachineAssetManagement\KlingelnbergMachine
 C:\Users\Bara_Omk\Desktop\KlingelnbergMachineAssetManagement\KlingelnbergMachineAssetManagement.Api\obj\Debug\net8.0\Klingeln.FF16CDA2.Up2Date
 C:\Users\Bara_Omk\Desktop\KlingelnbergMachineAssetManagement\KlingelnbergMachineAssetManagement.Api\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Api.genruntimeconfig.cache
 C:\Users\Bara_Omk\Desktop\KlingelnbergMachineAssetManagement\KlingelnbergMachineAssetManagement.Api\obj\Debug\net8.0\ref\KlingelnbergMachineAssetManagement.Api.dll
+C:\Users\Bara_Omk\Desktop\KlingelnbergMachineAssetManagement\KlingelnbergMachineAssetManagement.Api\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Api.sourcelink.json

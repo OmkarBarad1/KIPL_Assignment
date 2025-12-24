@@ -8,7 +8,7 @@
     "/api/machines/{machineName}/assets": {
       "get": {
         "tags": [
-          "GetAsset"
+          "GetAllServices"
         ],
         "parameters": [
           {
@@ -27,22 +27,10 @@
         }
       }
     },
-    "/api/machines/latest": {
+    "/api/machines/{assetName}/machines": {
       "get": {
         "tags": [
-          "GetLatestSeriesMachine"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/assets/{assetName}/machines": {
-      "get": {
-        "tags": [
-          "GetMachine"
+          "GetAllServices"
         ],
         "parameters": [
           {
@@ -61,19 +49,22 @@
         }
       }
     },
+    "/api/machines/latest": {
+      "get": {
+        "tags": [
+          "GetAllServices"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/matrix/upload": {
       "post": {
         "tags": [
           "MatrixUpload"
-        ],
-        "parameters": [
-          {
-            "name": "replace",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          }
         ],
         "requestBody": {
           "content": {
@@ -106,13 +97,7 @@
   "components": { },
   "tags": [
     {
-      "name": "GetAsset"
-    },
-    {
-      "name": "GetLatestSeriesMachine"
-    },
-    {
-      "name": "GetMachine"
+      "name": "GetAllServices"
     },
     {
       "name": "MatrixUpload"

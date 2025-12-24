@@ -17,9 +17,6 @@
             </div>
         </div>
         
-        <label>
-            <input type="checkbox" @bind = "isChecked"/>Replace the Existing file
-        </label>
         <!-- Upload Button -->
         <div class="text-center mb-3">
             <button class="btn btn-primary px-4"
@@ -44,7 +41,6 @@
 
     private string statusMessage = string.Empty;
     private string statusClass = "text-success";
-    private bool isChecked = false;
 
     private IBrowserFile? selectedFile;
     private bool isFileSelected => selectedFile != null;
@@ -63,7 +59,8 @@
 
         try
         {
-            await UploadService.UploadAsync(selectedFile, !isChecked);
+            
+            await UploadService.UploadAsync(selectedFile);
 
             statusMessage = $"File uploaded successfully as matrix";
             statusClass = "text-success";
@@ -73,5 +70,6 @@
             statusMessage = $"Upload failed: {ex.Message}";
             statusClass = "text-danger";
         }
+
     }
 }
