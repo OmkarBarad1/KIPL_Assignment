@@ -5,11 +5,11 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.Interfaces
 {
     public interface IMachineAssetServices
     {
-        List<string> GetAssetByMachineName(string machineName);
+        List<Asset> GetAssetByMachineName(string machineName);
 
-        List<string> GetMachineByAssetName(string assetName);
+        List<Machine> GetMachineByAssetName(string assetName);
 
-        List<string> GetMachineThatUseLatestSeriesOfAsset();
+        List<Machine> GetMachineThatUseLatestSeriesOfAsset();
 
         List<MachineAsset> GetAllData();
 

@@ -1,6 +1,8 @@
 ﻿@page "/get-asset"
 @rendermode InteractiveServer
 @inject KlingelnbergMachineAssetManagement.Services.ApiService ApiService
+@using KlingelnbergMachineAssetManagement.Domain
+
 
 <div class="container mt-5">
     <div class="card shadow-sm p-4">
@@ -40,6 +42,7 @@
                         <tr>
                             <th>#</th>
                             <th>Asset Name</th>
+                            <th>Series</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,7 +50,8 @@
                         {
                             <tr>
                                 <td>@(i + 1)</td>
-                                <td>@assets[i]</td>
+                                <td>@assets[i].AssetName</td>
+                                <td>@assets[i].Series</td>
                             </tr>
                         }
                     </tbody>
@@ -61,7 +65,7 @@
 @code {
 
     private string machineName = "";
-    private List<string> assets = new();
+    private List<Asset> assets = new();
 
     private bool isSearched = false;
     private string message = "";

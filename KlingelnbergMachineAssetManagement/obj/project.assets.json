@@ -351,23 +351,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bara_Omk\\.nuget\\packages\\": {},
+    "C:\\Users\\omkar\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bara_Omk\\Desktop\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
+      "projectUniqueName": "D:\\Project_Work\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
       "projectName": "KlingelnbergMachineAssetManagement",
-      "projectPath": "C:\\Users\\Bara_Omk\\Desktop\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
-      "packagesPath": "C:\\Users\\Bara_Omk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bara_Omk\\Desktop\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement\\obj\\",
+      "projectPath": "D:\\Project_Work\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
+      "packagesPath": "C:\\Users\\omkar\\.nuget\\packages\\",
+      "outputPath": "D:\\Project_Work\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bara_Omk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\omkar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -394,7 +394,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -424,7 +424,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,4 +1,4 @@
-﻿namespace KlingelnbergMachineAssetManagement.Api.Domain
+﻿namespace KlingelnbergMachineAssetManagement.Domain
 {
     public class MachineAsset
     {
@@ -8,9 +8,9 @@
 
         public MachineAsset(string machineName, string assetName, string series)
         {
-            MachineName = machineName;
-            AssetName = assetName;
-            Series = series;
+            this.MachineName = machineName;
+            this.AssetName = assetName;
+            this.Series = series;
         }
     }
 }

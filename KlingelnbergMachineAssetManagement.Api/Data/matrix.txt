@@ -1,5 +1,9 @@
-MachineA, Asset1, S1
-c300, Asset2, S2
-c300, Asset1, S2
-c60, Asset3, S3
-c300, Asset2, S3
+C300, Cutter head, S6
+C40, Cutter head, S7
+C300, Blade safety cover, S10
+C60, Blade safety cover, S11
+C300, Deburring blades, S6
+C60, Cutter head, S8
+C60, Clamping fixture, S2
+C40, Blade safety cover, S11
+C40, Shutter gripper, S3

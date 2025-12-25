@@ -13,33 +13,43 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
             _filePath = filePath;
         }
 
-        public List<string> GetAssetByMachineName(string machineName)
+        public List<Asset> GetAssetByMachineName(string machineName)
         {
             if (string.IsNullOrWhiteSpace(machineName))
-                return new List<string>();
+                return new List<Asset>();
 
             var records = GetAllData();
+            var result = new List<Asset>();
 
-            return (from r in records
-                    where r.MachineName.Equals(machineName, StringComparison.OrdinalIgnoreCase)
-                    select r.AssetName)
-                    .Distinct()
-                    .ToList();
+            result = (from r in records
+                          where r.MachineName.Equals(machineName, StringComparison.OrdinalIgnoreCase)
+                          group r by new { r.AssetName, r.Series } into g
+                          select new Asset
+                          (
+                               g.Key.AssetName,
+                               g.Key.Series
+                          ))
+                          .ToList();
+
+            return result;
+
         }
 
-        public List<string> GetMachineByAssetName(string assetName)
+        public List<Machine> GetMachineByAssetName(string assetName)
         {
             if (string.IsNullOrWhiteSpace(assetName))
-                return new List<string>();
-
+                return new List<Machine>();
 
             var records = GetAllData();
 
-            var result = new List<string>();
+            var result = new List<Machine>();
 
             result = (from r in records
                       where r.AssetName.Equals(assetName, StringComparison.OrdinalIgnoreCase)
-                      select r.MachineName)
+                      select new Machine
+                      (
+                          r.MachineName
+                       ))
                       .Distinct()
                       .ToList();
 
@@ -48,7 +58,7 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
         }
 
 
-        public List<string> GetMachineThatUseLatestSeriesOfAsset()
+        public List<Machine> GetMachineThatUseLatestSeriesOfAsset()
         {
 
 
@@ -72,7 +82,7 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
             var machines = from r in records
                            group r by r.MachineName;
 
-            List<string> result = new();
+            List<Machine> result = new();
 
             foreach (var machineGroup in machines)
             {
@@ -92,7 +102,7 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
 
                 if (usesAllLatest)
                 {
-                    result.Add(machineGroup.Key);
+                    result.Add(new Machine(machineGroup.Key));
                 }
             }
 
