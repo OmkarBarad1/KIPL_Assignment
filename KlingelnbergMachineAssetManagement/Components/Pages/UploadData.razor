@@ -59,7 +59,7 @@
 
         try
         {
-            
+
             await UploadService.UploadAsync(selectedFile);
 
             statusMessage = $"File uploaded successfully as matrix";
@@ -70,6 +70,10 @@
             statusMessage = $"Upload failed: {ex.Message}";
             statusClass = "text-danger";
         }
+        finally
+        {
+            selectedFile = null;
 
+        }
     }
 }

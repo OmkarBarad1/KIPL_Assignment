@@ -24,7 +24,11 @@ namespace KlingelnbergMachineAssetManagement.Services
             content.Add(fileContent, "file", file.Name);
 
             var response = await _http.PostAsync($"api/matrix/upload", content);
-            response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                throw new Exception(error);
+            }
         }
     }
 }

@@ -1,17 +1,15 @@
 ﻿using KlingelnbergMachineAssetManagement.Api.Application.Interfaces;
-using KlingelnbergMachineAssetManagement.Api.Domain;
+using KlingelnbergMachineAssetManagement.Api.Entities;
 
 namespace KlingelnbergMachineAssetManagement.Api.Infrastructure.FileUpload
 {
-    public class TxtMatrixParser : IUploadedMatrixParser
+    public class TxtMatrixParser : IMatrixParser
     {
         public bool CanHandle(string ext) => ext == ".txt" || ext == ".csv";
 
-        public async Task<List<MachineAsset>> ParseAsync(IFormFile file)
+        public async Task<List<MachineAsset>> ParseAsync(Stream stream)
         {
             var result = new List<MachineAsset>();
-
-            await using var stream = file.OpenReadStream();
 
             using var reader = new StreamReader(stream);
 

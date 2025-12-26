@@ -16,25 +16,25 @@ namespace KlingelnbergMachineAssetManagement.Api.Controllers
         }
 
         [HttpGet("{machineName}/assets")]
-        public IActionResult GetAssetsByMachine(string machineName)
+        public async Task<IActionResult> GetAssetsByMachine(string machineName)
         {
-            var result = _Services.GetAssetByMachineName(machineName.Trim());
+            var result = await _Services.GetAssetByMachineName(machineName.Trim());
 
             return Ok(result);
         }
 
         [HttpGet("{assetName}/machines")]
-        public IActionResult GetMachinesByAsset(string assetName)
+        public async Task<IActionResult> GetMachinesByAsset(string assetName)
         {
-            var result = _Services.GetMachineByAssetName(assetName.Trim());
+            var result = await _Services.GetMachineByAssetName(assetName.Trim());
 
             return Ok(result);
         }
 
         [HttpGet("latest")]
-        public IActionResult GetMachinesUsingLatestAssetSeries()
+        public async Task<IActionResult> GetMachinesUsingLatestAssetSeries()
         {
-            var result = _Services.GetMachineThatUseLatestSeriesOfAsset();
+            var result = await _Services.GetMachineThatUseLatestSeriesOfAsset();
             return Ok(result);
         }
     }

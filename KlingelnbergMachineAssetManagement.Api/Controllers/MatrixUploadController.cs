@@ -22,18 +22,27 @@ namespace KlingelnbergMachineAssetManagement.Api.Controllers
 
             try
             {
-                await _service.UploadAsync(file);
+                var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+                await using Stream stream = file.OpenReadStream();
+                await _service.UploadAsync(stream, extension);
 
                 return Ok(new
                 {
                     message = "File Uploded Succesfully"
                 });
             }
+            catch (NotSupportedException ex)
+            {
+                return BadRequest(new
+                {
+                   error = ex.Message
+                });
+            }
             catch (Exception ex)
             {
                 return StatusCode(500, new
                 {
-                    error = ex.Message
+                     error = ex.Message
                 });
             }
         }

@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlingelnbergMachineAssetManagement.Domain", "KlingelnbergMachineAssetManagement.Domain\KlingelnbergMachineAssetManagement.Domain.csproj", "{428FFDA4-CE06-40F2-AF74-83E1F6D2FB07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{2D0923C0-D6A0-4DB4-B8A8-E1637584DFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D0923C0-D6A0-4DB4-B8A8-E1637584DFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D0923C0-D6A0-4DB4-B8A8-E1637584DFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{428FFDA4-CE06-40F2-AF74-83E1F6D2FB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428FFDA4-CE06-40F2-AF74-83E1F6D2FB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428FFDA4-CE06-40F2-AF74-83E1F6D2FB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{428FFDA4-CE06-40F2-AF74-83E1F6D2FB07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

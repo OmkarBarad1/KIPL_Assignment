@@ -1,24 +1,62 @@
 ﻿using KlingelnbergMachineAssetManagement.Api.Application.Interfaces;
-using KlingelnbergMachineAssetManagement.Api.Domain;
+using KlingelnbergMachineAssetManagement.Api.Entities;
+using KlingelnbergMachineAssetManagement.Domain;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
 {
     public class MachineAssetServices : IMachineAssetServices
     {
-
-        string _filePath;
-
-        public MachineAssetServices(string filePath)
+        private List<MachineAsset> _records= new();
+        private readonly IRepository _repository;
+        private readonly string _filePath;
+        private readonly SemaphoreSlim _lock = new(1, 1);
+        private bool _initialized = false;
+        public MachineAssetServices(IRepository repository,string filePath)
         {
+            _repository = repository;
             _filePath = filePath;
         }
 
-        public List<Asset> GetAssetByMachineName(string machineName)
+        public async Task InitializeAsync()
+        {
+            if (_initialized) return;
+
+            await _lock.WaitAsync();
+
+            try
+            {
+                if (_initialized) return; 
+
+                if (!File.Exists(_filePath))
+                {
+                    _records = new();
+                    _initialized = true;
+                    return;
+                }
+
+                var extension = Path.GetExtension(_filePath);
+                using Stream stream = File.OpenRead(_filePath);
+
+                _records = await _repository.GetAllData(stream, extension);
+                _initialized = true;
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
+        public List<MachineAsset> records => _records ?? new();
+
+
+        public async Task<List<Asset>> GetAssetByMachineName(string machineName)
         {
             if (string.IsNullOrWhiteSpace(machineName))
                 return new List<Asset>();
 
-            var records = GetAllData();
+            await InitializeAsync();
+
             var result = new List<Asset>();
 
             result = (from r in records
@@ -35,12 +73,12 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
 
         }
 
-        public List<Machine> GetMachineByAssetName(string assetName)
+        public async Task<List<Machine>> GetMachineByAssetName(string assetName)
         {
             if (string.IsNullOrWhiteSpace(assetName))
                 return new List<Machine>();
 
-            var records = GetAllData();
+            await InitializeAsync();
 
             var result = new List<Machine>();
 
@@ -58,12 +96,11 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
         }
 
 
-        public List<Machine> GetMachineThatUseLatestSeriesOfAsset()
+        public async Task<List<Machine>> GetMachineThatUseLatestSeriesOfAsset()
         {
 
 
-            var records = GetAllData();
-
+            await InitializeAsync();
             var latestSeriesByAsset = (from r in records
                                        group r by r.AssetName into assetGroup
                                        select new
@@ -111,33 +148,19 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.UseCases
 
         private int ExtractSeriesNumber(string series)
         {
-            return int.Parse(series.Substring(1));
+            if (string.IsNullOrWhiteSpace(series))
+                return 0;
+
+            if (series.Length < 2)
+                return 0;
+
+            var numberPart = series.Substring(1);
+
+            if (int.TryParse(numberPart, out int value))
+                return value;
+
+            return 0;
         }
 
-
-        public List<MachineAsset> GetAllData()
-        {
-
-            var records = new List<MachineAsset>();
-
-            if (!File.Exists(_filePath)) return records;
-
-            using var reader = new StreamReader(_filePath);
-            string? line = reader.ReadLine();
-            while (line != null)
-            {
-                var parts = line.Split(',');
-                if (parts.Length < 3)
-                {
-                    line = reader.ReadLine();
-                    continue;
-                }
-
-                records.Add(new MachineAsset(parts[0].Trim(), parts[1].Trim(), parts[2].Trim()));
-                line = reader.ReadLine();
-            }
-            return records;
-
-        }
     }
 }

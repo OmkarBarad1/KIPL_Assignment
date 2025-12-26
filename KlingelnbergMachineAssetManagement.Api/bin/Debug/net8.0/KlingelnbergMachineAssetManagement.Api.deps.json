@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "KlingelnbergMachineAssetManagement.Api/1.0.0": {
         "dependencies": {
-          "KlingelnbergMachineAssetManagement": "1.0.0",
+          "KlingelnbergMachineAssetManagement.Domain": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.22",
           "Swashbuckle.AspNetCore": "10.1.0"
         },
@@ -72,12 +72,9 @@
           }
         }
       },
-      "KlingelnbergMachineAssetManagement/1.0.0": {
-        "dependencies": {
-          "Swashbuckle.AspNetCore": "10.1.0"
-        },
+      "KlingelnbergMachineAssetManagement.Domain/1.0.0": {
         "runtime": {
-          "KlingelnbergMachineAssetManagement.dll": {
+          "KlingelnbergMachineAssetManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -133,7 +130,7 @@
       "path": "swashbuckle.aspnetcore.swaggerui/10.1.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.10.1.0.nupkg.sha512"
     },
-    "KlingelnbergMachineAssetManagement/1.0.0": {
+    "KlingelnbergMachineAssetManagement.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

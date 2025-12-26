@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\uploads\" />
+    <ProjectReference Include="..\KlingelnbergMachineAssetManagement.Domain\KlingelnbergMachineAssetManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>

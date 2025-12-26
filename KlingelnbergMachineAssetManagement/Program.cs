@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddScoped<ApiService>();
+builder.Services.AddScoped<ApiGetService>();
 builder.Services.AddScoped<ApiPostService>();
 
 

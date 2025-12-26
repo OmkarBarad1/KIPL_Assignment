@@ -110,6 +110,16 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "KlingelnbergMachineAssetManagement.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/KlingelnbergMachineAssetManagement.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KlingelnbergMachineAssetManagement.Domain.dll": {}
+        }
       }
     }
   },
@@ -343,10 +353,16 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "KlingelnbergMachineAssetManagement.Domain/1.0.0": {
+      "type": "project",
+      "path": "../KlingelnbergMachineAssetManagement.Domain/KlingelnbergMachineAssetManagement.Domain.csproj",
+      "msbuildProject": "../KlingelnbergMachineAssetManagement.Domain/KlingelnbergMachineAssetManagement.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "KlingelnbergMachineAssetManagement.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 10.1.0"
     ]
   },
@@ -357,11 +373,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project_Work\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
+      "projectUniqueName": "D:\\Project_Work\\Demo1\\KIPL_Assignment\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
       "projectName": "KlingelnbergMachineAssetManagement",
-      "projectPath": "D:\\Project_Work\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
+      "projectPath": "D:\\Project_Work\\Demo1\\KIPL_Assignment\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\KlingelnbergMachineAssetManagement.csproj",
       "packagesPath": "C:\\Users\\omkar\\.nuget\\packages\\",
-      "outputPath": "D:\\Project_Work\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\obj\\",
+      "outputPath": "D:\\Project_Work\\Demo1\\KIPL_Assignment\\KIPL_Assignment\\KlingelnbergMachineAssetManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -381,7 +397,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Project_Work\\Demo1\\KIPL_Assignment\\KIPL_Assignment\\KlingelnbergMachineAssetManagement.Domain\\KlingelnbergMachineAssetManagement.Domain.csproj": {
+              "projectPath": "D:\\Project_Work\\Demo1\\KIPL_Assignment\\KIPL_Assignment\\KlingelnbergMachineAssetManagement.Domain\\KlingelnbergMachineAssetManagement.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

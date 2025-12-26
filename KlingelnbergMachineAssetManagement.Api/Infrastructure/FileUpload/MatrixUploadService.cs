@@ -6,22 +6,17 @@ namespace KlingelnbergMachineAssetManagement.Api.Infrastructure.FileUpload
 {
     public class MatrixUploadService
     {
-        //private readonly MatrixParserResolver _Resolver;
         private readonly MatrixWriter _writer;
-        private readonly IEnumerable<IUploadedMatrixParser> _parser;
-        public MatrixUploadService(IEnumerable<IUploadedMatrixParser> parser, MatrixWriter writer)
+        private readonly IRepository _repository;
+        public MatrixUploadService(IRepository repository, MatrixWriter writer)
         {
-            _parser = parser;  
+            _repository = repository; 
             _writer = writer;
         }
 
-        public async Task UploadAsync(IFormFile file)
+        public async Task UploadAsync(Stream stream, string extension)
         {
-            var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
-
-            var parser = _parser.FirstOrDefault(p => p.CanHandle(ext)) ?? throw new NotSupportedException($"No parser registered"); ;
-
-            var records = await parser.ParseAsync(file);
+            var records = await _repository.GetAllData(stream, extension);
             _writer.Save(records);
         }
     }

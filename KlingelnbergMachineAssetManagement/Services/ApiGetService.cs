@@ -1,12 +1,12 @@
-﻿using KlingelnbergMachineAssetManagement.Domain;
-
+﻿
+using KlingelnbergMachineAssetManagement.Domain;
 namespace KlingelnbergMachineAssetManagement.Services
 {
-    public class ApiService
+    public class ApiGetService
     {
         private readonly HttpClient _http;
 
-        public ApiService(IHttpClientFactory factory)
+        public ApiGetService(IHttpClientFactory factory)
         {
             _http = factory.CreateClient("ApiClient");
         }

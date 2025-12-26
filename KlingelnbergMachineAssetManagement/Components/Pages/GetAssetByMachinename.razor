@@ -1,6 +1,6 @@
 ﻿@page "/get-asset"
 @rendermode InteractiveServer
-@inject KlingelnbergMachineAssetManagement.Services.ApiService ApiService
+@inject KlingelnbergMachineAssetManagement.Services.ApiGetService ApiService
 @using KlingelnbergMachineAssetManagement.Domain
 
 
@@ -82,18 +82,20 @@
             return;
         }
 
-        var result = await ApiService.GetAssetByMachineName(machineName);
-
-        if (result == null || result.Count == 0)
+        try
         {
-            message = "No assets found for this machine.";
+            assets = await ApiService.GetAssetByMachineName(machineName);
+
+            if (!assets.Any())
+            {
+                message = "No machines found for this asset.";
+            }
         }
-        else
+        catch (Exception ex)
         {
-            assets = result;
+            message = ex.Message;
         }
 
-        // Optional: clear input after search
         machineName = "";
     }
 }

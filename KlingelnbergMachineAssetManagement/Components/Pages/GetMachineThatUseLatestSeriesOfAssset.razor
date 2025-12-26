@@ -1,6 +1,6 @@
 ﻿@page "/latest-machines"
 @rendermode InteractiveServer
-@inject KlingelnbergMachineAssetManagement.Services.ApiService ApiService
+@inject KlingelnbergMachineAssetManagement.Services.ApiGetService ApiService
 @using KlingelnbergMachineAssetManagement.Domain
 
 <div class="container mt-5">
@@ -13,57 +13,84 @@
         <!-- Button Section -->
         <div class="text-center mb-4">
             <button class="btn btn-warning px-4"
+                    disabled="@isLoading"
                     @onclick="Load">
-                Get Machines
+                @(isLoading ? "Loading..." : "Get Machines")
             </button>
         </div>
 
+        <!-- Error Message -->
+        @if (!string.IsNullOrWhiteSpace(message))
+        {
+            <div class="alert alert-danger text-center">
+                @message
+            </div>
+        }
+
         <!-- Initial State -->
-        @if(!isClicked)
+        @if (!isClicked)
         {
             <p class="text-center text-danger">
-                Please Click the Button To Get Machines That Are Use Latest Series Of Asset
+                Please click the button to get machines that use the latest series of assets.
             </p>
         }
-        else if (!machines.Any())
+        else if (machines.Count == 0)
         {
-        <p class="text-center text-danger">
-            No machine is using the latest series of all assets.
-        </p>
+            <p class="text-center text-danger">
+                No machine is using the latest series of all assets.
+            </p>
         }
         else
         {
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped text-center">
-                <thead class="table-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Machine Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < machines.Count; i++)
-                    {
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="table-dark">
                         <tr>
-                            <td>@(i + 1)</td>
-                            <td>@machines[i].MachineName</td>
+                            <th>#</th>
+                            <th>Machine Name</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < machines.Count; i++)
+                        {
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td>@machines[i].MachineName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         }
     </div>
 
 </div>
 
 @code {
-    private List<Machine>? machines = new();
+    private List<Machine> machines = new();
     private bool isClicked = false;
+    private bool isLoading = false;
+    private string message = string.Empty;
 
     private async Task Load()
     {
         isClicked = true;
-        machines = await ApiService.GetMachineThatUseLatestSeriesOfAsset() ?? new List<Machine>();
+        isLoading = true;
+        message = string.Empty;
+
+        try
+        {
+            machines = await ApiService.GetMachineThatUseLatestSeriesOfAsset()
+                       ?? new List<Machine>();
+        }
+        catch (Exception ex)
+        {
+            machines.Clear();
+            message = ex.Message;
+        }
+        finally
+        {
+            isLoading = false;
+        }
     }
 }

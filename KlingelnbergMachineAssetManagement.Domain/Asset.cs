@@ -1,4 +1,10 @@
-﻿namespace KlingelnbergMachineAssetManagement.Api.Domain
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KlingelnbergMachineAssetManagement.Domain
 {
     public class Asset
     {
@@ -7,7 +13,7 @@
 
         public Asset(string assetName, string series)
         {
-            AssetName = assetName; 
+            AssetName = assetName;
             Series = series;
         }
     }
