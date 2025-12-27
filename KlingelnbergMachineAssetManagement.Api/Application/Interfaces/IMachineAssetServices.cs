@@ -1,17 +1,19 @@
-﻿using KlingelnbergMachineAssetManagement.Api.Entities;
+﻿
 using KlingelnbergMachineAssetManagement.Domain;
+using KlingelnbergMachineAssetManagement.Domian;
 
 
 namespace KlingelnbergMachineAssetManagement.Api.Application.Interfaces
 {
     public interface IMachineAssetServices
     {
-        Task<List<Asset>> GetAssetByMachineName(string machineName);
+        Task<List<Asset>> GetAssetByMachineNameAsync(string machineName);
 
-        Task<List<Machine>> GetMachineByAssetName(string assetName);
+        Task<List<Machine>> GetMachineByAssetNameAsync(string assetName);
 
-        Task<List<Machine>> GetMachineThatUseLatestSeriesOfAsset();
+        Task<List<Machine>> GetMachineThatUseLatestSeriesOfAssetAsync();
 
+        Task<List<MachineAsset>> GetAllDataAsync();
         Task InitializeAsync();
     }
 }

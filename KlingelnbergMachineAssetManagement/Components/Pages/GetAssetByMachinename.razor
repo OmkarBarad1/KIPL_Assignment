@@ -84,7 +84,7 @@
 
         try
         {
-            assets = await ApiService.GetAssetByMachineName(machineName);
+            assets = await ApiService.GetAssetByMachineNameAsync(machineName);
 
             if (!assets.Any())
             {

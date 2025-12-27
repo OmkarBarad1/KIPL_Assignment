@@ -15,26 +15,34 @@ namespace KlingelnbergMachineAssetManagement.Api.Controllers
             _Services = services;
         }
 
-        [HttpGet("{machineName}/assets")]
-        public async Task<IActionResult> GetAssetsByMachine(string machineName)
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllDataAsync()
         {
-            var result = await _Services.GetAssetByMachineName(machineName.Trim());
+            var result = await _Services.GetAllDataAsync();
+
+            return Ok(result);
+        }
+
+        [HttpGet("{machineName}/assets")]
+        public async Task<IActionResult> GetAssetsByMachineAsync(string machineName)
+        {
+            var result = await _Services.GetAssetByMachineNameAsync(machineName.Trim());
 
             return Ok(result);
         }
 
         [HttpGet("{assetName}/machines")]
-        public async Task<IActionResult> GetMachinesByAsset(string assetName)
+        public async Task<IActionResult> GetMachinesByAssetAsync(string assetName)
         {
-            var result = await _Services.GetMachineByAssetName(assetName.Trim());
+            var result = await _Services.GetMachineByAssetNameAsync(assetName.Trim());
 
             return Ok(result);
         }
 
         [HttpGet("latest")]
-        public async Task<IActionResult> GetMachinesUsingLatestAssetSeries()
+        public async Task<IActionResult> GetMachinesUsingLatestAssetSeriesAsync()
         {
-            var result = await _Services.GetMachineThatUseLatestSeriesOfAsset();
+            var result = await _Services.GetMachineThatUseLatestSeriesOfAssetAsync();
             return Ok(result);
         }
     }

@@ -80,7 +80,7 @@
 
         try
         {
-            machines = await ApiService.GetMachineByAssetName(assetName);
+            machines = await ApiService.GetMachineByAssetNameAsync(assetName);
 
             if (!machines.Any())
             {

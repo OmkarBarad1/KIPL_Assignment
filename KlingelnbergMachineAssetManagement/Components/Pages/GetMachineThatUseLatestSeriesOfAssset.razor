@@ -80,7 +80,7 @@
 
         try
         {
-            machines = await ApiService.GetMachineThatUseLatestSeriesOfAsset()
+            machines = await ApiService.GetMachineThatUseLatestSeriesOfAssetAsync()
                        ?? new List<Machine>();
         }
         catch (Exception ex)

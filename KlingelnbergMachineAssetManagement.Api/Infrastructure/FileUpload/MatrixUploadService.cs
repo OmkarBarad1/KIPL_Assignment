@@ -16,7 +16,7 @@ namespace KlingelnbergMachineAssetManagement.Api.Infrastructure.FileUpload
 
         public async Task UploadAsync(Stream stream, string extension)
         {
-            var records = await _repository.GetAllData(stream, extension);
+            var records = await _repository.GetAllDataAsync(stream, extension);
             _writer.Save(records);
         }
     }

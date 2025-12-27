@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Project_Work/Demo1/KIPL_Assignment/KIPL_Assignment/KlingelnbergMachineAssetManagement/Components/Pages/GetAllData.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXRBbGxEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project_Work/Demo1/KIPL_Assignment/KIPL_Assignment/KlingelnbergMachineAssetManagement/Components/Pages/GetAssetByMachinename.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXRBc3NldEJ5TWFjaGluZW5hbWUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

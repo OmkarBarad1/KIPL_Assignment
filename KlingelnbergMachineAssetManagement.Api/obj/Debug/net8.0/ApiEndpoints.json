@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAllServicesController",
-    "Method": "GetMachinesByAsset",
+    "Method": "GetMachinesByAssetAsync",
     "RelativePath": "api/machines/{assetName}/machines",
     "HttpMethod": "GET",
     "IsController": true,
@@ -17,7 +17,7 @@
   },
   {
     "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAllServicesController",
-    "Method": "GetAssetsByMachine",
+    "Method": "GetAssetsByMachineAsync",
     "RelativePath": "api/machines/{machineName}/assets",
     "HttpMethod": "GET",
     "IsController": true,
@@ -33,7 +33,17 @@
   },
   {
     "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAllServicesController",
-    "Method": "GetMachinesUsingLatestAssetSeries",
+    "Method": "GetAllDataAsync",
+    "RelativePath": "api/machines/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KlingelnbergMachineAssetManagement.Api.Controllers.GetAllServicesController",
+    "Method": "GetMachinesUsingLatestAssetSeriesAsync",
     "RelativePath": "api/machines/latest",
     "HttpMethod": "GET",
     "IsController": true,

@@ -1,4 +1,4 @@
-﻿namespace KlingelnbergMachineAssetManagement.Api.Entities
+﻿namespace KlingelnbergMachineAssetManagement.Domian
 {
     public class MachineAsset
     {

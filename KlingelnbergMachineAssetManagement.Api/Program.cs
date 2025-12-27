@@ -26,13 +26,13 @@ var dataFilePath = builder.Configuration.GetValue<string>("DataFilePath")
     ?? Path.Combine(builder.Environment.ContentRootPath, "Data", "matrix.txt");
 
 
-builder.Services.AddSingleton<IRepository, Repository>();
-
-builder.Services.AddScoped<IMachineAssetServices>(sp =>
+builder.Services.AddSingleton<IRepository>(sp=>
 {
-    var _repository = sp.GetRequiredService<IRepository>();
-    return new MachineAssetServices(_repository, dataFilePath);
+    var parser = sp.GetRequiredService<IEnumerable<IMatrixParser>>();
+    return new Repository(parser, dataFilePath);
 });
+
+builder.Services.AddScoped<IMachineAssetServices, MachineAssetServices>();
 
 
 builder.Services.AddSingleton(_ => new MatrixWriter(dataFilePath));

@@ -1,0 +1,78 @@
+﻿@page "/all-data"
+@rendermode InteractiveServer
+@inject KlingelnbergMachineAssetManagement.Services.ApiGetService ApiService
+@using KlingelnbergMachineAssetManagement.Domian
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+
+        <h3 class="text-center mb-4">All Uploaded File Data</h3>
+
+        <!-- Message -->
+        @if (!string.IsNullOrEmpty(message))
+        {
+            <p class="text-center text-muted mt-3">
+                @message
+            </p>
+        }
+
+        <!-- Result Table -->
+        @if (records.Any())
+        {
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Machine Name</th>
+                            <th>Asset Name</th>
+                            <th>Series</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < records.Count; i++)
+                        {
+                            <tr>
+                                <td>@(i + 1)</td>
+                                <td>@records[i].MachineName</td>
+                                <td>@records[i].AssetName</td>
+                                <td>@records[i].Series</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        <!-- Note -->
+        <div class="alert alert-info mt-4">
+            <strong>Note:</strong>
+            If some data from your uploaded file is missing, or if all file data is missing,
+            then the uploaded file data is not in the required format.
+        </div>
+
+    </div>
+</div>
+
+@code {
+
+    private List<MachineAsset> records = new();
+    private string message = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            records = await ApiService.GetAllDataAsync();
+
+            if (!records.Any())
+            {
+                message = "No data found in the uploaded file.";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+    }
+}

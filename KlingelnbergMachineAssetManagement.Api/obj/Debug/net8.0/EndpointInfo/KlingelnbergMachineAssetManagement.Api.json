@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/machines/all": {
+      "get": {
+        "tags": [
+          "GetAllServices"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/machines/{machineName}/assets": {
       "get": {
         "tags": [

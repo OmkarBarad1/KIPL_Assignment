@@ -1,5 +1,5 @@
 ﻿using KlingelnbergMachineAssetManagement.Api.Application.Interfaces;
-using KlingelnbergMachineAssetManagement.Api.Entities;
+using KlingelnbergMachineAssetManagement.Domian;
 
 namespace KlingelnbergMachineAssetManagement.Api.Infrastructure.FileUpload
 {

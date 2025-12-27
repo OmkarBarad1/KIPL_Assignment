@@ -1,4 +1,5 @@
-﻿using KlingelnbergMachineAssetManagement.Api.Entities;
+﻿
+using KlingelnbergMachineAssetManagement.Domian;
 
 
 namespace KlingelnbergMachineAssetManagement.Api.Application.Interfaces
