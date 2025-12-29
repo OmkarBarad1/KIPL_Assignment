@@ -1,6 +1,5 @@
 ﻿
 using KlingelnbergMachineAssetManagement.Domain;
-using KlingelnbergMachineAssetManagement.Domian;
 
 
 namespace KlingelnbergMachineAssetManagement.Api.Application.Interfaces
@@ -11,9 +10,8 @@ namespace KlingelnbergMachineAssetManagement.Api.Application.Interfaces
 
         Task<List<Machine>> GetMachineByAssetNameAsync(string assetName);
 
-        Task<List<Machine>> GetMachineThatUseLatestSeriesOfAssetAsync();
+        Task<List<Machine>> MachinesWithLatestAssetSeriesAsync();
 
         Task<List<MachineAsset>> GetAllDataAsync();
-        Task InitializeAsync();
     }
 }

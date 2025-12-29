@@ -1,6 +1,5 @@
 ﻿
 using KlingelnbergMachineAssetManagement.Domain;
-using KlingelnbergMachineAssetManagement.Domian;
 namespace KlingelnbergMachineAssetManagement.Services
 {
     public class ApiGetService

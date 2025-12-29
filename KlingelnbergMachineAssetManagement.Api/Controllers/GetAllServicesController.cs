@@ -1,5 +1,4 @@
 ﻿using KlingelnbergMachineAssetManagement.Api.Application.Interfaces;
-using KlingelnbergMachineAssetManagement.Api.Application.UseCases;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KlingelnbergMachineAssetManagement.Api.Controllers
@@ -42,7 +41,7 @@ namespace KlingelnbergMachineAssetManagement.Api.Controllers
         [HttpGet("latest")]
         public async Task<IActionResult> GetMachinesUsingLatestAssetSeriesAsync()
         {
-            var result = await _Services.GetMachineThatUseLatestSeriesOfAssetAsync();
+            var result = await _Services.MachinesWithLatestAssetSeriesAsync();
             return Ok(result);
         }
     }

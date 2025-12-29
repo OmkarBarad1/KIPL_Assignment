@@ -1,5 +1,5 @@
 ﻿using KlingelnbergMachineAssetManagement.Api.Application.Interfaces;
-using KlingelnbergMachineAssetManagement.Domian;
+using KlingelnbergMachineAssetManagement.Domain;
 using System.Text.Json;
 
 namespace KlingelnbergMachineAssetManagement.Api.Infrastructure.FileUpload

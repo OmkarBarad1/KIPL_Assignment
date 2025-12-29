@@ -1,5 +1,5 @@
 ﻿using KlingelnbergMachineAssetManagement.Api.Application.Interfaces;
-using KlingelnbergMachineAssetManagement.Domian;
+using KlingelnbergMachineAssetManagement.Domain;
 namespace KlingelnbergMachineAssetManagement.Api.Infrastructure.FileRead
 {
     public class Repository : IRepository

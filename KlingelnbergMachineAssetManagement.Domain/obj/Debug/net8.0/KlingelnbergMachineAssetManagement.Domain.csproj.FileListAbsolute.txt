@@ -10,3 +10,15 @@ D:\Project_Work\Demo1\KIPL_Assignment\KIPL_Assignment\KlingelnbergMachineAssetMa
 D:\Project_Work\Demo1\KIPL_Assignment\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\refint\KlingelnbergMachineAssetManagement.Domain.dll
 D:\Project_Work\Demo1\KIPL_Assignment\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.pdb
 D:\Project_Work\Demo1\KIPL_Assignment\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\ref\KlingelnbergMachineAssetManagement.Domain.dll
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\bin\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.deps.json
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\bin\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.dll
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\bin\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.pdb
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.AssemblyInfo.cs
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.sourcelink.json
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.dll
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\refint\KlingelnbergMachineAssetManagement.Domain.dll
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\KlingelnbergMachineAssetManagement.Domain.pdb
+C:\Users\Bara_Omk\Desktop\project\KIPL_Assignment\KlingelnbergMachineAssetManagement.Domain\obj\Debug\net8.0\ref\KlingelnbergMachineAssetManagement.Domain.dll

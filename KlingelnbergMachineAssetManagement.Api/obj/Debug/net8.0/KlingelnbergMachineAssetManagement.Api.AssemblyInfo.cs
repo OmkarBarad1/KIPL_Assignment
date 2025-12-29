@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KlingelnbergMachineAssetManagement.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+882ec69f0c40a52dafb6ef309fc51f211126a976")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3a91473ec0a9603a0376441012b9f644341d06e")]
 [assembly: System.Reflection.AssemblyProductAttribute("KlingelnbergMachineAssetManagement.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KlingelnbergMachineAssetManagement.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
